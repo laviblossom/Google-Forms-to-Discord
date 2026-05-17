@@ -1,4 +1,4 @@
-const POST_URL = "WEBBHOOK URL";
+const POST_URL = "URL_HERE";
 
 function onSubmit(e) {
     const response = e.response.getItemResponses();
@@ -44,16 +44,24 @@ function onSubmit(e) {
         "payload": JSON.stringify({
             "content": "‌",
             "embeds": [{
-                "title": "Some nice title here",
+                "title": "DELTARUNE STAFF APPLICATIONS",
                 "color": 33023, // This is optional, you can look for decimal colour codes at https://www.webtoolkitonline.com/hexadecimal-decimal-color-converter.html
                 "fields": items,
                 "footer": {
-                    "text": "Some footer here"
+                    "text": ":3"
                 },
                 "timestamp": new Date().toISOString()
             }]
         })
     };
-
-    UrlFetchApp.fetch(POST_URL, options);
+  var timeout = true
+  while(timeout)
+  {
+    try
+    {
+      UrlFetchApp.fetch(POST_URL, options);
+      timeout = false
+    }
+    catch(e){Utilities.sleep(1500)}
+  }
 };
