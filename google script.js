@@ -54,6 +54,14 @@ function onSubmit(e) {
             }]
         })
     };
-
-    UrlFetchApp.fetch(POST_URL, options);
+  var timeout = true
+  while(timeout)
+  {
+    try
+    {
+      UrlFetchApp.fetch(POST_URL, options);
+      timeout = false
+    }
+    catch(e){Utilities.sleep(1500)}
+  }
 };
